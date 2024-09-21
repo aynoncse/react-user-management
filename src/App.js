@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+import allUsers from './users.json'
+import Users from "./components/Users";
+import { Container } from "react-bootstrap";
 
 function App() {
+  const [users, setUsers] = useState(allUsers);
+
+  const handleDeleteUser = (id) => {
+    const filteredUsers = users.filter((user) => user.id !== id);
+    setUsers(filteredUsers);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container className="my-5">
+      <h4 className="mb-3">Users</h4>
+
+      <Users users={users} onDeleteUser={handleDeleteUser} />
+    </Container>
   );
 }
 

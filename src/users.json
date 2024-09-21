@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "username": "jdoe",
+        "firstname": "John",
+        "lastname": "Doe"
+    },
+    {
+        "id": 2,
+        "username": "asmith",
+        "firstname": "Alice",
+        "lastname": "Smith"
+    },
+    {
+        "id": 3,
+        "username": "bwayne",
+        "firstname": "Bruce",
+        "lastname": "Wayne"
+    },
+    {
+        "id": 4,
+        "username": "ckent",
+        "firstname": "Clark",
+        "lastname": "Kent"
+    },
+    {
+        "id": 5,
+        "username": "pparker",
+        "firstname": "Peter",
+        "lastname": "Parker"
+    },
+    {
+        "id": 6,
+        "username": "tswift",
+        "firstname": "Taylor",
+        "lastname": "Swift"
+    },
+    {
+        "id": 7,
+        "username": "abeckham",
+        "firstname": "Alex",
+        "lastname": "Beckham"
+    },
+    {
+        "id": 8,
+        "username": "mjordan",
+        "firstname": "Michael",
+        "lastname": "Jordan"
+    },
+    {
+        "id": 9,
+        "username": "llewis",
+        "firstname": "Lily",
+        "lastname": "Lewis"
+    },
+    {
+        "id": 10,
+        "username": "emusk",
+        "firstname": "Elon",
+        "lastname": "Musk"
+    }
+]
