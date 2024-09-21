@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button } from 'react-bootstrap';
+import { UsersContext } from '../context/UsersContext';
 
-const User = ({ user, onDeleteUser }) => {
+const User = ({ user }) => {
+
+    const { users, setUsers } = useContext(UsersContext);
+
+    const handleDelete = (id) => {
+        const filteredUsers = users.filter((user) => user.id !== id);
+        setUsers(filteredUsers);
+    }
+
     return (
         <tr>
             <td>{user.id}</td>
@@ -10,7 +19,7 @@ const User = ({ user, onDeleteUser }) => {
             <td>@{user.username}</td>
             <td className='text-end'>
                 <Button variant="primary">Edit</Button>
-                <Button variant="danger ms-2" onClick={() => onDeleteUser(user.id)}>Delete</Button>
+                <Button variant="danger ms-2" onClick={() => handleDelete(user.id)}>Delete</Button>
             </td>
         </tr>
     );

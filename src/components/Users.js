@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Button, Table } from 'react-bootstrap';
 import User from './User';
+import { UsersContext } from '../context/UsersContext';
 
-const Users = ({ users, onDeleteUser, onAddUser }) => {
+const Users = () => {
+
+    const { users, setShowAddUserForm } = useContext(UsersContext);
 
     return (
         <>
             <div className="d-flex flex-wrap justify-content-between align-items-center mb-3">
                 <h4>Users</h4>
-                <Button variant="primary" onClick={() => onAddUser(true)}> Add New </Button>
+                <Button variant="primary" onClick={() => setShowAddUserForm(true)}> Add New </Button>
             </div>
 
             <Table striped bordered>
@@ -24,7 +27,7 @@ const Users = ({ users, onDeleteUser, onAddUser }) => {
 
                 <tbody>
                     {
-                        users.map((user) => <User key={user.id} user={user} onDeleteUser={onDeleteUser} />)
+                        users.map((user) => <User key={user.id} user={user} />)
                     }
                     {
                         users.length == 0 && <tr><td className='text-center' colSpan="100%">No user yet</td></tr>
