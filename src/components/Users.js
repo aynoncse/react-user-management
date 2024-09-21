@@ -2,7 +2,7 @@ import React from 'react';
 import { Table } from 'react-bootstrap';
 import User from './User';
 
-const Users = ({ users, onDeleteUser }) => {
+const Users = ({ users }) => {
 
 
     return (
@@ -20,7 +20,7 @@ const Users = ({ users, onDeleteUser }) => {
 
                 <tbody>
                     {
-                        users.map((user) => <User key={user.id} user={user} onDeleteUser={onDeleteUser} />)
+                        users.map((user) => <User key={user.id} user={user} />)
                     }
                 </tbody>
             </Table>
