@@ -6,10 +6,10 @@ import { UserContext } from '../context/UserContext';
 
 const Users = () => {
 
-    const { users, setShowAddUserForm } = useContext(UserContext);
+    const { state, dispatch } = useContext(UserContext);
 
     const handleOnClick = () => {
-        setShowAddUserForm(true);
+        dispatch({ type: "SHOW_ADD_USER_FORM" })
     }
 
     return (
@@ -32,10 +32,10 @@ const Users = () => {
 
                 <tbody>
                     {
-                        users.map((user) => <User key={user.id} user={user} />)
+                        state.users.map((user) => <User key={user.id} user={user} />)
                     }
                     {
-                        users.length === 0 && <tr><td className='text-center' colSpan="100%">No user yet</td></tr>
+                        state.users.length === 0 && <tr><td className='text-center' colSpan="100%">No user yet</td></tr>
                     }
                 </tbody>
             </Table>

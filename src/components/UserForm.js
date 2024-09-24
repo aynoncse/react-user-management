@@ -3,7 +3,7 @@ import { Form, FormControl, Card, Button } from 'react-bootstrap';
 import { useUserContext } from '../hooks/useUserContext'
 
 const UserForm = () => {
-    const { setUsers, setShowAddUserForm } = useUserContext();
+    const { dispatch } = useUserContext();
 
     const [user, setUser] = useState({
         username: '',
@@ -13,16 +13,7 @@ const UserForm = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-
-        setUsers((prevUsers) => {
-            const id = !prevUsers.length ? 1 : prevUsers.slice(-1)[0].id + 1;
-            return [
-                ...prevUsers,
-                { id, ...user }
-            ]
-        });
-
-        setShowAddUserForm(false);
+        dispatch({ type: 'ADD_USER', payload: user });
     }
 
     const handleOnChange = (e) => {
@@ -30,6 +21,10 @@ const UserForm = () => {
             ...user,
             [e.target.name]: e.target.value
         }));
+    }
+
+    const handleCancleClick = () => {
+        dispatch({ type: 'CANCEL_ADD_USER' });
     }
 
     return (
@@ -53,7 +48,7 @@ const UserForm = () => {
                     </Form.Group>
 
                     <div className='d-flex justify-content-between gap-5'>
-                        <Button type='button' variant='danger' className='flex-grow-1' onClick={() => setShowAddUserForm()} >Cancel</Button>
+                        <Button type='button' variant='danger' className='flex-grow-1' onClick={handleCancleClick} >Cancel</Button>
                         <Button type='submit' className='flex-grow-1'>Add</Button>
                     </div>
                 </Form>

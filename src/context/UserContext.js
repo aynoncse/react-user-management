@@ -1,15 +1,11 @@
 import React, { createContext, useReducer, useState } from "react";
-
-import usersData from '../users.json'
+import { initialState, reducer } from "../reducer/usersReducer";
 
 export const UserContext = createContext({});
 
 const UsersProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
-    const [users, setUsers] = useState(usersData);
-    const [showAddUserForm, setShowAddUserForm] = useState(false);
-
-    const data = { users, setUsers, showAddUserForm, setShowAddUserForm }
+    const data = { state, dispatch }
 
     return (
         <UserContext.Provider value={data}>
