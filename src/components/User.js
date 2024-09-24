@@ -5,10 +5,10 @@ import { useUserContext } from '../hooks/useUserContext'
 
 const User = ({ user }) => {
 
-    const { dispatch } = useUserContext(UserContext);
+    const { deleteUser } = useUserContext(UserContext);
 
     const handleDelete = (id) => {
-        dispatch({ type: 'DELETE_USER', payload: id });
+        deleteUser(id);
     }
 
     return (

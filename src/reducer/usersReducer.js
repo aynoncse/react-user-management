@@ -10,7 +10,7 @@ export const reducer = (state, action) => {
         case "SHOW_ADD_USER_FORM":
             return {
                 ...state,
-                showAddUserForm: true,
+                showAddUserForm: action.payload,
             };
         case "ADD_USER":
             action.payload.id = !state.users.length ? 1 : state.users.slice(-1)[0].id + 1;
@@ -27,11 +27,6 @@ export const reducer = (state, action) => {
                 ...state,
                 users: filteredUsers
             };
-        case "CANCEL_ADD_USER":
-            return {
-                ...state,
-                showAddUserForm: false
-            }
         default:
             return state;
     }

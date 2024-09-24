@@ -3,7 +3,7 @@ import { Form, FormControl, Card, Button } from 'react-bootstrap';
 import { useUserContext } from '../hooks/useUserContext'
 
 const UserForm = () => {
-    const { dispatch } = useUserContext();
+    const { addUser, showForm } = useUserContext();
 
     const [user, setUser] = useState({
         username: '',
@@ -13,7 +13,7 @@ const UserForm = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        dispatch({ type: 'ADD_USER', payload: user });
+        addUser(user);
     }
 
     const handleOnChange = (e) => {
@@ -21,10 +21,6 @@ const UserForm = () => {
             ...user,
             [e.target.name]: e.target.value
         }));
-    }
-
-    const handleCancleClick = () => {
-        dispatch({ type: 'CANCEL_ADD_USER' });
     }
 
     return (
@@ -48,7 +44,7 @@ const UserForm = () => {
                     </Form.Group>
 
                     <div className='d-flex justify-content-between gap-5'>
-                        <Button type='button' variant='danger' className='flex-grow-1' onClick={handleCancleClick} >Cancel</Button>
+                        <Button type='button' variant='danger' className='flex-grow-1' onClick={() => showForm(false)}>Cancel</Button>
                         <Button type='submit' className='flex-grow-1'>Add</Button>
                     </div>
                 </Form>
