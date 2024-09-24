@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Button } from 'react-bootstrap';
-import { UsersContext } from '../context/UsersContext';
+import { AppContext } from '../context/AppContext';
+import { useAppContext } from '../hooks/useAppContext'
 
 const User = ({ user }) => {
 
-    const { users, setUsers } = useContext(UsersContext);
+    const { users, setUsers } = useAppContext(AppContext);
 
     const handleDelete = (id) => {
         const filteredUsers = users.filter((user) => user.id !== id);

@@ -1,27 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
-import Users from "./components/Users";
 import { Container } from "react-bootstrap";
+import Users from "./components/Users";
 import UserForm from "./components/UserForm";
-import { UsersContext } from "./context/UsersContext";
+import UsersProvider, { AppContext } from "./context/AppContext";
+import AppInner from "./components/AppInner";
 
-function App() {
-  const [users, setUsers] = useState([]);
-  const [showAddUserForm, setShowAddUserForm] = useState(false);
-
+const App = () => {
   return (
-    <UsersContext.Provider value={{ users, setUsers, showAddUserForm, setShowAddUserForm }}>
-      <Container className="my-5">
-        {
-          showAddUserForm ?
-            <div className="mb-5">
-              <UserForm />
-            </div>
-            :
-            <Users />
-        }
-      </Container>
-    </UsersContext.Provider>
+    <UsersProvider>
+      <AppInner />
+    </UsersProvider>
   );
 }
 
