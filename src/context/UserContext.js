@@ -1,19 +1,20 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useReducer, useState } from "react";
 
 import usersData from '../users.json'
 
-export const AppContext = createContext({});
+export const UserContext = createContext({});
 
 const UsersProvider = ({ children }) => {
+    const [state, dispatch] = useReducer(reducer, initialState);
     const [users, setUsers] = useState(usersData);
     const [showAddUserForm, setShowAddUserForm] = useState(false);
 
     const data = { users, setUsers, showAddUserForm, setShowAddUserForm }
 
     return (
-        <AppContext.Provider value={data}>
+        <UserContext.Provider value={data}>
             {children}
-        </AppContext.Provider>
+        </UserContext.Provider>
     );
 };
 

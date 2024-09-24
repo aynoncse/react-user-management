@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Form, FormControl, Card, Button } from 'react-bootstrap';
-import { useAppContext } from '../hooks/useAppContext'
+import { useUserContext } from '../hooks/useUserContext'
 
 const UserForm = () => {
-    const { setUsers, setShowAddUserForm } = useAppContext();
+    const { setUsers, setShowAddUserForm } = useUserContext();
 
     const [user, setUser] = useState({
         username: '',

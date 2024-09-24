@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { AppContext } from '../context/AppContext';
+import { UserContext } from '../context/UserContext';
 import { Container } from 'react-bootstrap';
 import UserForm from './UserForm';
 import Users from './Users';
-import { useAppContext } from '../hooks/useAppContext';
+import { useUserContext } from '../hooks/useUserContext';
 
 const AppInner = () => {
 
-    const { showAddUserForm } = useAppContext(AppContext);
+    const { showAddUserForm } = useUserContext(UserContext);
 
     return (
         <Container className="my-5">

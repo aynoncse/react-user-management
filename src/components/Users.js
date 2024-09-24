@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import { Button, Table } from 'react-bootstrap';
 
 import User from './User';
-import { AppContext } from '../context/AppContext';
+import { UserContext } from '../context/UserContext';
 
 const Users = () => {
 
-    const { users, setShowAddUserForm } = useContext(AppContext);
+    const { users, setShowAddUserForm } = useContext(UserContext);
 
     const handleOnClick = () => {
         setShowAddUserForm(true);
