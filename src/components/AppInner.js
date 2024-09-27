@@ -8,12 +8,12 @@ import { useUserContext } from '../hooks/useUserContext';
 
 const AppInner = () => {
 
-    const { showAddUserForm } = useUserContext(UserContext);
+    const { state } = useUserContext(UserContext);
 
     return (
         <Container className="my-5">
             {
-                showAddUserForm ?
+                state.showAddUserForm ?
                     <div className="mb-5">
                         <UserForm />
                     </div>
